@@ -141,7 +141,7 @@ function fastifyMultipart (fastify, options, done) {
         req.body = part.fields
         if (part.file) {
           if (options.onFile) {
-            await options.onFile(part)
+            await options.onFile(part, req)
           } else {
             await part.toBuffer()
           }
